@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ - Εξοπλισμός</title>
+
+<style>
+:root{
+  /* Χρώματα */
+  --primary: #0d6efd; 
+  --secondary: #0a58ca;
+  --accent-color: #0dcaf0; 
+
+  --bg1:#0b0c12;
+  --bg2:#121420;
+
+  --text:#ffffff; /* Καθαρό λευκό */
+  --muted:rgba(255,255,255,.8); /* Πιο φωτεινό muted για καλύτερη ανάγνωση */
+
+  --border:rgba(255,255,255,.15);
+
+  --shadow:0 22px 60px rgba(0,0,0,.6);
+  --radius:24px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  font-weight: 500; /* Λίγο πιο έντονα γράμματα γενικά */
+  
+  /* Σκιά κειμένου για να ξεχωρίζει από το φόντο (High Contrast) */
+  text-shadow: 2px 2px 4px #000000;
+
+  /* ΑΛΛΑΓΗ: Μειωμένη αδιαφάνεια (0.25) για πιο "ήσυχα" φώτα πίσω */
+  background:
+    radial-gradient(700px 420px at 16% 18%, rgba(13, 110, 253, .25), transparent 60%),
+    radial-gradient(700px 420px at 84% 18%, rgba(13, 202, 240, .20), transparent 60%),
+    linear-gradient(135deg,var(--bg1),var(--bg2));
+}
+
+/* Watermark logo */
+.watermark{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:url("logo.png") center / min(860px,92vw) no-repeat;
+  opacity:.12;
+  filter:grayscale(100%);
+}
+
+.wrap{
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 12px;
+  position:relative;
+  z-index:1;
+}
+
+.card{
+  width:min(520px,100%);
+  
+  background: rgba(18, 20, 32, 0.92);
+  
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(20px); 
+  overflow:hidden;
+  position:relative;
+}
+
+.ribbon{
+  height:9px;
+  background:linear-gradient(90deg, var(--primary), var(--accent-color));
+}
+
+.inner{
+  padding:18px 14px 44px;
+}
+
+.header{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.logo{
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background:rgba(255,255,255,.95);
+  border:1px solid rgba(255,255,255,.25);
+  display:grid;
+  place-items:center;
+}
+.logo img{
+  width:85%;
+  height:85%;
+  object-fit:contain;
+}
+
+h1{
+  margin:0;
+  font-size:clamp(18px, 5vw, 24px);
+  line-height:1.2;
+  color: #fff !important;
+  text-shadow: 3px 3px 6px #000; /* Ακόμα πιο έντονη σκιά στον τίτλο */
+}
+
+.subtitle{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:13.5px;
+}
+
+.divider{
+  height:1px;
+  margin:18px 0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+}
+
+.section-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    margin-left: 4px;
+    font-weight: 700; /* Πιο παχύ για να διαβάζεται */
+    text-shadow: 1px 1px 2px #000;
+}
+
+.buttons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.btn{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px;
+  min-height:64px;
+  border-radius:18px;
+  text-decoration:none;
+  color:var(--text);
+  
+  background:rgba(255,255,255,.06);
+  
+  border:1px solid rgba(255,255,255,.15);
+  transition:.12s ease;
+  overflow:hidden;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,.10);
+}
+
+.accent{
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:6px;
+  background:var(--primary);
+}
+
+.left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:1;
+  min-width:0;
+}
+
+.icon-img{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+}
+
+.label strong{
+  display:block;
+  font-size:14px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-weight: 600;
+}
+.label span{
+  font-size:12px;
+  color:var(--muted);
+  font-weight: 400;
+}
+
+.pill{
+  z-index:1;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.26);
+  background:rgba(255,255,255,.10);
+  font-size:11px;
+  white-space:nowrap;
+  text-shadow: none; /* Αφαιρούμε τη σκιά από το pill για να μην θολώνει */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.views{
+  position:absolute;
+  bottom:8px;
+  right:10px;
+  pointer-events:none;
+}
+.views img{
+  height:16px;
+  opacity:.75;
+  display:block;
+}
+
+footer{
+  margin-top:20px;
+  text-align:center;
+  font-size:12px;
+  color:rgba(247,247,251,.8);
+  text-shadow: 1px 1px 2px #000;
+}
+
+@media (max-width: 480px){
+  .views{ bottom:4px; right:6px; }
+}
+</style>
+</head>
+
+<body>
+<div class="watermark"></div>
+
+<main class="wrap">
+<section class="card">
+  <div class="ribbon"></div>
+
+  <div class="inner">
+    <div class="header">
+      <div class="logo">
+        <img src="logo.png" alt="ΦΤΥΛΑΚΗΣ">
+      </div>
+      <div>
+        <h1>ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ</h1>
+        <p class="subtitle">Εξοπλισμός Ξενοδοχειακός & Οικιακός</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="buttons">
+      
+      <div class="section-title">Online Παρουσια</div>
+
+      <a class="btn" href="https://ftylakis.gr/" target="_blank" rel="noopener">
+        <span class="accent"></span>
+        <div class="left">
+          <img src="web_icon.png" class="icon-img" alt="Website">
+          <div class="label">
+            <strong>E-Shop / Website</strong>
+            <span>ftylakis.gr</span>
+          </div>
+        </div>
+        <span class="pill">Visit</span>
+      </a>
+
+      <a class="btn" href="https://www.facebook.com/ftylakis.gr/?locale=el_GR" target="_blank" rel="noopener">
+        <span class="accent" style="background:#1877F2"></span>
+        <div class="left">
+          <img src="facebook.png" class="icon-img" alt="Facebook">
+          <div class="label">
+            <strong>Facebook</strong>
+            <span>ftylakis.gr</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="btn" href="https://www.instagram.com/ftylakis.gr/" target="_blank" rel="noopener">
+        <span class="accent" style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);"></span>
+        <div class="left">
+          <img src="instagram.png" class="icon-img" alt="Instagram">
+          <div class="label">
+            <strong>Instagram</strong>
+            <span>@ftylakis.gr</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="divider"></div>
+
+      <div class="section-title">Τα Καταστηματα μας (Google Maps)</div>
+
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Λεωφ.+62+Μαρτύρων+140,+Ηράκλειο" target="_blank" rel="noopener">
+        <span class="accent" style="background:#34A853"></span>
+        <div class="left">
+          <img src="maps.png" class="icon-img" alt="Maps">
+          <div class="label">
+            <strong>Κατάστημα 62 Μαρτύρων</strong>
+            <span>Λεωφ. 62 Μαρτύρων 140</span>
+          </div>
+        </div>
+        <span class="pill">Πήγαινέ με</span>
+      </a>
+
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Μενελάου+Παρλαμά+109,+Ηράκλειο" target="_blank" rel="noopener">
+        <span class="accent" style="background:#34A853"></span>
+        <div class="left">
+          <img src="maps.png" class="icon-img" alt="Maps">
+          <div class="label">
+            <strong>Κατάστημα Εσταυρωμένος</strong>
+            <span>Μενελάου Παρλαμά 109</span>
+          </div>
+        </div>
+        <span class="pill">Πήγαινέ με</span>
+      </a>
+
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Μονής+Πρέβελης+90,+Ηράκλειο" target="_blank" rel="noopener">
+        <span class="accent" style="background:#34A853"></span>
+        <div class="left">
+          <img src="maps.png" class="icon-img" alt="Maps">
+          <div class="label">
+            <strong>Κατάστημα Κέντρο</strong>
+            <span>Μονής Πρέβελης 90</span>
+          </div>
+        </div>
+        <span class="pill">Πήγαινέ με</span>
+      </a>
+
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Α.+Παπανδρέου+15,+Γάζι" target="_blank" rel="noopener">
+        <span class="accent" style="background:#34A853"></span>
+        <div class="left">
+          <img src="maps.png" class="icon-img" alt="Maps">
+          <div class="label">
+            <strong>Κατάστημα Γάζι</strong>
+            <span>Α. Παπανδρέου 15</span>
+          </div>
+        </div>
+        <span class="pill">Πήγαινέ με</span>
+      </a>
+
+      <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Αρχ.+Θεάτρου+11,+Χερσόνησος" target="_blank" rel="noopener">
+        <span class="accent" style="background:#34A853"></span>
+        <div class="left">
+          <img src="maps.png" class="icon-img" alt="Maps">
+          <div class="label">
+            <strong>Κατάστημα Χερσόνησος</strong>
+            <span>Αρχ. Θεάτρου 11</span>
+          </div>
+        </div>
+        <span class="pill">Πήγαινέ με</span>
+      </a>
+
+    </div>
+
+    <footer>
+      © <span id="y"></span> ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ
+    </footer>
+
+    <div class="views">
+      <img id="hitCounter" alt="">
+    </div>
+
+  </div>
+</section>
+</main>
+
+<script>
+document.getElementById("y").textContent = new Date().getFullYear();
+
+(function () {
+  var url = encodeURIComponent(window.location.href);
+  document.getElementById("hitCounter").src =
+    "https://hitscounter.dev/api/hit?url=" + url +
+    "&label=&icon=chart&color=%230d6efd&style=flat";
+})();
+</script>
+</body>
+</html>
