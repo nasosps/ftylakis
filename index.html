@@ -15,7 +15,7 @@
   --bg1:#0b0c12;
   --bg2:#121420;
 
-  --text:#ffffff; /* Καθαρό λευκό */
+  --text:#ffffff; 
   --muted:rgba(255,255,255,.8);
 
   --border:rgba(255,255,255,.15);
@@ -210,15 +210,16 @@ h1{
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
+/* Στυλ για τον Counter */
 .views{
   position:absolute;
   bottom:8px;
   right:10px;
   pointer-events:none;
+  opacity: 0.8;
 }
 .views img{
-  height:16px;
-  opacity:.75;
+  height:20px; /* Μέγεθος από το αρχείο ftylakis.html */
   display:block;
 }
 
@@ -381,7 +382,7 @@ footer{
     </footer>
 
     <div class="views">
-      <img id="hitCounter" alt="">
+      <img id="hitCounter" alt="Views Counter">
     </div>
 
   </div>
@@ -393,9 +394,10 @@ document.getElementById("y").textContent = new Date().getFullYear();
 
 (function () {
   var url = encodeURIComponent(window.location.href);
+  // Χρήση του σωστού URL για τον counter με το ματάκι (eye icon)
   document.getElementById("hitCounter").src =
     "https://hitscounter.dev/api/hit?url=" + url +
-    "&label=&icon=chart&color=%230d6efd&style=flat";
+    "&label=Views&icon=eye&color=%232563eb&message=&style=flat&tz=UTC";
 })();
 </script>
 </body>
