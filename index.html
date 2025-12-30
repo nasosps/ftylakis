@@ -16,7 +16,7 @@
   --bg2:#121420;
 
   --text:#ffffff; /* Καθαρό λευκό */
-  --muted:rgba(255,255,255,.8); /* Πιο φωτεινό muted για καλύτερη ανάγνωση */
+  --muted:rgba(255,255,255,.8);
 
   --border:rgba(255,255,255,.15);
 
@@ -31,12 +31,12 @@ body{
   margin:0;
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   color:var(--text);
-  font-weight: 500; /* Λίγο πιο έντονα γράμματα γενικά */
+  font-weight: 500;
   
-  /* Σκιά κειμένου για να ξεχωρίζει από το φόντο (High Contrast) */
+  /* Σκιά κειμένου */
   text-shadow: 2px 2px 4px #000000;
 
-  /* ΑΛΛΑΓΗ: Μειωμένη αδιαφάνεια (0.25) για πιο "ήσυχα" φώτα πίσω */
+  /* ΦΩΤΑ: Μειωμένο Opacity (0.25) */
   background:
     radial-gradient(700px 420px at 16% 18%, rgba(13, 110, 253, .25), transparent 60%),
     radial-gradient(700px 420px at 84% 18%, rgba(13, 202, 240, .20), transparent 60%),
@@ -65,9 +65,7 @@ body{
 
 .card{
   width:min(520px,100%);
-  
   background: rgba(18, 20, 32, 0.92);
-  
   border:1px solid var(--border);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
@@ -111,7 +109,7 @@ h1{
   font-size:clamp(18px, 5vw, 24px);
   line-height:1.2;
   color: #fff !important;
-  text-shadow: 3px 3px 6px #000; /* Ακόμα πιο έντονη σκιά στον τίτλο */
+  text-shadow: 3px 3px 6px #000;
 }
 
 .subtitle{
@@ -133,7 +131,7 @@ h1{
     color: var(--muted);
     margin-bottom: 10px;
     margin-left: 4px;
-    font-weight: 700; /* Πιο παχύ για να διαβάζεται */
+    font-weight: 700;
     text-shadow: 1px 1px 2px #000;
 }
 
@@ -154,9 +152,7 @@ h1{
   border-radius:18px;
   text-decoration:none;
   color:var(--text);
-  
   background:rgba(255,255,255,.06);
-  
   border:1px solid rgba(255,255,255,.15);
   transition:.12s ease;
   overflow:hidden;
@@ -211,7 +207,6 @@ h1{
   background:rgba(255,255,255,.10);
   font-size:11px;
   white-space:nowrap;
-  text-shadow: none; /* Αφαιρούμε τη σκιά από το pill για να μην θολώνει */
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
@@ -263,6 +258,22 @@ footer{
 
     <div class="buttons">
       
+      <div class="section-title">Επαφη</div>
+      
+      <a class="btn" href="ftylakis.vcf" download="ftylakis.vcf">
+        <span class="accent" style="background:#2563eb"></span> 
+        <div class="left">
+          <img src="logo.png" class="icon-img" alt="vCard">
+          <div class="label">
+            <strong>Αποθήκευση Επαφής</strong>
+            <span>Λήψη vCard (Όλα τα καταστήματα)</span>
+          </div>
+        </div>
+        <span class="pill">Λήψη</span>
+      </a>
+
+      <div class="divider"></div>
+
       <div class="section-title">Online Παρουσια</div>
 
       <a class="btn" href="https://ftylakis.gr/" target="_blank" rel="noopener">
