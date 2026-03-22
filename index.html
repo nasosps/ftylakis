@@ -231,6 +231,27 @@ footer{
   text-shadow: 1px 1px 2px #000;
 }
 
+.nael-credit{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  flex-wrap:wrap;
+  width:100%;
+  margin-top:10px;
+  font-size:12px;
+  line-height:1.5;
+  color:rgba(247,247,251,.72);
+  text-align:center;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.nael-credit a{
+  color:inherit;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+
 @media (max-width: 480px){
   .views{ bottom:4px; right:6px; }
 }
@@ -381,6 +402,11 @@ footer{
       © <span id="y"></span> ΦΤΥΛΑΚΗΣ ΙΩΑΝΝΗΣ
     </footer>
 
+    <div class="nael-credit">
+      <span>created by NAEL -</span>
+      <a href="https://nasosps.github.io/page/" target="_blank" rel="noopener">Link</a>
+    </div>
+
     <div class="views">
       <img id="hitCounter" alt="Views Counter">
     </div>
@@ -400,10 +426,5 @@ document.getElementById("y").textContent = new Date().getFullYear();
     "&label=Views&icon=eye&color=%232563eb&message=&style=flat&tz=UTC";
 })();
 </script>
-<!-- NAEL credit -->
-<div id="nael-credit" style="margin:20px auto 12px;text-align:center;font-family:inherit;font-size:12px;line-height:1.5;font-weight:500;color:inherit;opacity:0.72;">
-  <span>created by NAEL -</span>
-  <a href="https://nasosps.github.io/page/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Link</a>
-</div>
 </body>
 </html>
